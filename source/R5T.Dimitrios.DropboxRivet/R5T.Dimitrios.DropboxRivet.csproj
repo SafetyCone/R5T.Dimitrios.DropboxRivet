@@ -4,4 +4,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>1701;1702;1591;1573</NoWarn>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\R5T.Dimitrios.Maoursi\source\R5T.Dimitrios.Maoursi\R5T.Dimitrios.Maoursi.csproj" />
+    <ProjectReference Include="..\..\..\R5T.Egaleo.Standard\source\R5T.Egaleo.Standard\R5T.Egaleo.Standard.csproj" />
+    <ProjectReference Include="..\..\..\R5T.Lombardy.Standard\source\R5T.Lombardy.Standard\R5T.Lombardy.Standard.csproj" />
+    <ProjectReference Include="..\..\..\R5T.Maoursi.Dropbox\source\R5T.Maoursi.Dropbox\R5T.Maoursi.Dropbox.csproj" />
+    <ProjectReference Include="..\..\..\R5T.Oxford.Rivet.Standard\source\R5T.Oxford.Rivet.Standard\R5T.Oxford.Rivet.Standard.csproj" />
+  </ItemGroup>
 </Project>
