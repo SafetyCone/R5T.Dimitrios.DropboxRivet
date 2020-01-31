@@ -19,7 +19,7 @@ namespace R5T.Dimitrios.DropboxRivet
         /// </summary>
         public static IServiceCollection AddDropboxRivetOrganizationDirectoryPathProvider(this IServiceCollection services)
         {
-            services.AddMaoursiOrganizationDirectoryPathProviderAction(
+            services.AddMaoursiOrganizationDirectoryPathProvider(
                 services.AddOrganizationsDirectoryPathProviderAction(),
                 services.AddRivetOrganizationProviderAction(),
                 services.AddOrganizationDirectoryNameConventionAction(),
