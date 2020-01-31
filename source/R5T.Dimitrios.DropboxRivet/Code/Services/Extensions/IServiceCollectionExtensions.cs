@@ -2,6 +2,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
+using R5T.Dacia;
 using R5T.Dimitrios.Maoursi;
 using R5T.Egaleo.Standard;
 using R5T.Lombardy.Standard;
@@ -13,17 +14,28 @@ namespace R5T.Dimitrios.DropboxRivet
 {
     public static class IServiceCollectionExtensions
     {
+        /// <summary>
+        /// Adds the <see cref="IOrganizationDirectoryPathProvider"/> service.
+        /// </summary>
         public static IServiceCollection AddDropboxRivetOrganizationDirectoryPathProvider(this IServiceCollection services)
         {
-            services
-                .AddSingleton<IOrganizationDirectoryPathProvider, OrganizationDirectoryPathProvider>()
-                .AddOrganizationDirectoryNameConvention()
-                .AddStringlyTypedPathOperator()
-                .AddDropboxOrganizationsDirectoryPathProvider()
-                .AddRivetOrganizationProvider()
+            services.AddMaoursiOrganizationDirectoryPathProviderAction(
+                services.AddOrganizationsDirectoryPathProviderAction(),
+                services.AddRivetOrganizationProviderAction(),
+                services.AddOrganizationDirectoryNameConventionAction(),
+                services.AddStringlyTypedPathOperatorAction())
                 ;
 
             return services;
+        }
+
+        /// <summary>
+        /// Adds the <see cref="IOrganizationDirectoryPathProvider"/> service.
+        /// </summary>
+        public static ServiceAction<IOrganizationDirectoryPathProvider> AddDropboxRivetOrganizationDirectoryPathProviderAction(this IServiceCollection services)
+        {
+            var serviceAction = new ServiceAction<IOrganizationDirectoryPathProvider>(() => services.AddDropboxRivetOrganizationDirectoryPathProvider());
+            return serviceAction;
         }
     }
 }
